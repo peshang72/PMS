@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/Styles/output.css" />
+  </head>
+  <body class="bg-[url('../public/img/background.jpg')] bg-cover min-h-screen">
+    <nav
+      class="fixed w-full top-0 left-0 bg-white shadow z-10 flex justify-between items-center border-b pb-2 px-16"
+    >
+      <div class="flex flex-col items-center">
+        <div class="size-16 p-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            class="bi bi-hospital fill-primary"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8.5 5.034v1.1l.953-.55.5.867L9 7l.953.55-.5.866-.953-.55v1.1h-1v-1.1l-.953.55-.5-.866L7 7l-.953-.55.5-.866.953.55v-1.1zM13.25 9a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25zM13 11.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm.25 1.75a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25zm-11-4a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 3 9.75v-.5A.25.25 0 0 0 2.75 9zm0 2a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25zM2 13.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25z"
+            />
+            <path
+              d="M5 1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1a1 1 0 0 1 1 1v4h3a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h3V3a1 1 0 0 1 1-1zm2 14h2v-3H7zm3 0h1V3H5v12h1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1zm0-14H6v1h4zm2 7v7h3V8zm-8 7V8H1v7z"
+            />
+          </svg>
+        </div>
+        <div>
+          <span class="text-xl font-bold text-primary">XYZ Hospital</span>
+        </div>
+      </div>
+      <div class="w-1/3 flex items-center justify-center">
+        <input
+          type="text"
+          name="search-bar"
+          placeholder="Search for Patient... e.g Phone Number, Name..."
+          class="placeholder-primary text-secondary border-primary focus:border-secondary focus:border-b-4 focus:border-t-4 focus:border-l-4 peer focus:outline-none border-t-2 border-b-2 border-l-2 w-full flex-grow px-2 py-4 rounded-l-lg"
+          id=""
+        />
+        <div
+          class="flex items-center border-2 rounded-r-lg px-2 py-2 border-primary peer-focus:border-secondary peer-focus:border-4"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            class="bi bi-search size-10 fill-primary"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="flex flex-col items-center">
+        <h1 class="text-2xl font-bold text-primary">16:24</h1>
+        <h2 class="text-lg text-primary">03 Dec, 2024</h2>
+      </div>
+    </nav>
+
+    <div class="pt-40 px-16">
+      <div class="grid grid-cols-3 gap-8">
+        <!-- Total Patients -->
+        <div class="bg-white shadow-lg rounded-lg p-6">
+          <h2 class="text-3xl font-bold text-primary">5,250</h2>
+          <p class="text-secondary">Total Patients</p>
+        </div>
+
+        <!-- Patients Last Week -->
+        <div class="bg-white shadow-lg rounded-lg p-6">
+          <h2 class="text-3xl font-bold text-primary">404</h2>
+          <p class="text-secondary">Patients Last Week</p>
+        </div>
+
+        <!-- Recent Growing Disease -->
+        <div class="bg-white shadow-lg rounded-lg p-6">
+          <h2 class="text-2xl font-bold text-primary">Diabetes</h2>
+          <p class="text-secondary">Recent Growing Disease</p>
+        </div>
+
+        <!-- Predominant Patient Age Group -->
+        <div class="bg-white shadow-lg rounded-lg p-6">
+          <h2 class="text-2xl font-bold text-primary">57-65</h2>
+          <p class="text-secondary">Predominant Patient Age Group</p>
+        </div>
+
+        <!-- Patients Section -->
+        <div class="bg-white shadow-lg rounded-lg p-6">
+          <div class="flex justify-between items-center">
+            <h2 class="text-xl font-bold text-primary">Patients</h2>
+            <a href="/patients" class="text-secondary">View All</a>
+          </div>
+          <p class="text-secondary mt-4">Total Patients: 5,250</p>
+        </div>
+
+        <!-- Available Doctors -->
+        <div class="bg-white shadow-lg rounded-lg p-6">
+          <div class="flex justify-between items-center">
+            <h2 class="text-xl font-bold text-primary">Available Doctors</h2>
+            <a href="#" class="text-secondary">View All</a>
+          </div>
+          <p class="text-secondary mt-4">Dentist: Dr. Farhang</p>
+        </div>
+
+        <!-- Patient Registration Section -->
+        <div class="bg-white shadow-lg rounded-lg p-6">
+          <div class="flex justify-between items-center">
+            <h2 class="text-xl font-bold text-primary">Register New Patient</h2>
+          </div>
+          <p class="text-secondary mt-4">Add a new patient to the system.</p>
+          <a
+            href="/registration"
+            class="mt-4 inline-block bg-primary text-white px-4 py-2 rounded"
+          >
+            Go to Registration
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

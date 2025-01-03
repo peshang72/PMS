@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Registration</title>
+    <link rel="stylesheet" href="/Styles/output.css" />
+  </head>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+      <h1 class="text-2xl font-bold text-primary mb-6">Register New Patient</h1>
+      <form action="/registration" method="POST">
+        <div class="mb-4">
+          <label for="firstName" class="block text-secondary mb-2"
+            >First Name</label
+          >
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            class="w-full px-3 py-2 border rounded"
+            required
+          />
+        </div>
+        <div class="mb-4">
+          <label for="lastName" class="block text-secondary mb-2"
+            >Last Name</label
+          >
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            class="w-full px-3 py-2 border rounded"
+            required
+          />
+        </div>
+        <div class="mb-4 flex gap-8 items-center">
+          <div class="w-1/2">
+            <label for="dateOfBirth" class="block text-secondary mb-2"
+              >Date of Birth</label
+            >
+            <input
+              type="date"
+              id="dateOfBirth"
+              name="dateOfBirth"
+              class="w-full px-3 py-2 border rounded bg-gray-100"
+              onchange="calculateAge()"
+            />
+          </div>
+          <div class="w-1/2">
+            <label for="age" class="block text-secondary mb-2">Age</label>
+            <input
+              type="number"
+              id="age"
+              name="age"
+              class="w-full px-3 py-2 border rounded bg-gray-100"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="mb-4">
+          
+        </div>
+        <div class="mb-4">
+          <label for="gender" class="block text-secondary mb-2">Gender</label>
+          <select
+            id="gender"
+            name="gender"
+            class="w-full px-3 py-2 border rounded"
+            required
+          >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="bloodType" class="block text-secondary mb-2">Blood Type</label>
+          <select
+            id="bloodType"
+            name="bloodType"
+            class="w-full px-3 py-2 border rounded"
+            required
+          >
+            <option value="">Select Blood Type</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="phoneNumber" class="block text-secondary mb-2"
+            >Phone Number</label
+          >
+          <input
+            type="tel"
+            id="phoneNumber"
+            name="phoneNumber"
+            class="w-full px-3 py-2 border rounded"
+            required
+          />
+        </div>
+        <div class="mb-4">
+          <label for="secondaryContact" class="block text-secondary mb-2"
+            >Secondary Phone Number</label
+          >
+          <input
+            type="tel"
+            id="secondaryContact"
+            name="secondaryContact"
+            class="w-full px-3 py-2 border rounded"
+            required
+          />
+        </div>
+        <div class="mb-4">
+          <label for="address" class="block text-secondary mb-2">Address</label>
+          <textarea
+            id="address"
+            name="address"
+            class="w-full px-3 py-2 border rounded"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="w-full bg-primary text-white py-2 rounded">
+          Register
+        </button>
+      </form>
+    </div>
+    <script src="/Scripts/registration.js"></script>
+  </body>
+</html>

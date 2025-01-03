@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Patients</title>
+    <link rel="stylesheet" href="/Styles/output.css" />
+  </head>
+  <body class="bg-gray-100 min-h-screen flex justify-center">
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-lg">
+      <h1 class="text-2xl font-bold text-primary mb-6">Search Patients</h1>
+      <form action="#" method="GET">
+        <div class="mb-4">
+          <label for="searchName" class="block text-secondary mb-2">Name</label>
+          <input
+            type="text"
+            id="searchName"
+            name="searchName"
+            class="w-full px-3 py-2 border rounded"
+            placeholder="Enter patient name"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="searchAge" class="block text-secondary mb-2">Age</label>
+          <input
+            type="number"
+            id="searchAge"
+            name="searchAge"
+            class="w-full px-3 py-2 border rounded"
+            placeholder="Enter patient age"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="searchGender" class="block text-secondary mb-2"
+            >Gender</label
+          >
+          <select
+            id="searchGender"
+            name="searchGender"
+            class="w-full px-3 py-2 border rounded"
+          >
+            <option value="">Any</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="searchBloodType" class="block text-secondary mb-2"
+            >Blood Type</label
+          >
+          <select
+            id="searchBloodType"
+            name="searchBloodType"
+            class="w-full px-3 py-2 border rounded"
+          >
+            <option value="">Any</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full bg-primary text-white py-2 rounded">
+          Search
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

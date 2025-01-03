@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patients</title>
+    <link rel="stylesheet" href="/Styles/output.css" />
+  </head>
+  <body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto p-8">
+      <h1 class="text-3xl font-bold text-primary mb-6">All Patients</h1>
+      <table class="min-w-full bg-white">
+        <thead>
+          <tr>
+            <th class="py-2">Name</th>
+            <th class="py-2">Age</th>
+            <th class="py-2">Gender</th>
+            <th class="py-2">Blood Type</th>
+            <th class="py-2">Contact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% patients.forEach(patient => { %>
+          <tr>
+            <td class="border px-4 py-2">
+              <%= patient.firstName %> <%= patient.lastName %>
+            </td>
+            <td class="border px-4 py-2"><%= patient.age %></td>
+            <td class="border px-4 py-2"><%= patient.gender %></td>
+            <td class="border px-4 py-2"><%= patient.bloodType %></td>
+            <td class="border px-4 py-2"><%= patient.phoneNumber %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
