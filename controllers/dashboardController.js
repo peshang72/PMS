@@ -1,7 +1,9 @@
 const Patient = require("../models/patient");
+const { calculateAge, getGender } = require("../utils/patientUtils");
 
-const dashboardGet = (req, res) => {
-  res.render("dashboard");
+const dashboardGet = async (req, res) => {
+  const patients = await Patient.find();
+  res.render("dashboard", { patients });
 };
 
 const registrationGet = (req, res) => {
@@ -34,9 +36,28 @@ const registrationPost = async (req, res) => {
 const getPatients = async (req, res) => {
   try {
     const patients = await Patient.find();
-    res.render("patients", { patients });
+    const enrichedPatients = patients.map((patient) => ({
+      ...patient.toObject(),
+      age: calculateAge(patient.dateOfBirth),
+      gender: getGender(patient.isMale),
+    }));
+    res.render("patients", { patients: enrichedPatients });
   } catch (error) {
     res.status(500).send("Error fetching patients");
+  }
+};
+
+const getPatientProfile = async (req, res) => {
+  try {
+    const patient = await Patient.findById(req.params.id);
+    const enrichedPatient = {
+      ...patient.toObject(),
+      age: calculateAge(patient.dateOfBirth),
+      gender: getGender(patient.isMale),
+    };
+    res.render("profile", { patient: enrichedPatient });
+  } catch (error) {
+    res.status(500).send("Error fetching patient profile");
   }
 };
 
@@ -45,4 +66,5 @@ module.exports = {
   registrationGet,
   registrationPost,
   getPatients,
+  getPatientProfile,
 };

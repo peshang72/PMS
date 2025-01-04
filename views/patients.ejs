@@ -9,26 +9,56 @@
   <body class="bg-gray-100 min-h-screen">
     <div class="container mx-auto p-8">
       <h1 class="text-3xl font-bold text-primary mb-6">All Patients</h1>
-      <table class="min-w-full bg-white">
+      <table class="min-w-full w-full bg-white">
         <thead>
           <tr>
-            <th class="py-2">Name</th>
-            <th class="py-2">Age</th>
-            <th class="py-2">Gender</th>
-            <th class="py-2">Blood Type</th>
-            <th class="py-2">Contact</th>
+            <th class="py-2 text-center">Name</th>
+            <th class="py-2 text-center">Age</th>
+            <th class="py-2 text-center">Gender</th>
+            <th class="py-2 text-center">Blood Type</th>
+            <th class="py-2 text-center">Contact</th>
+            <th class="py-2 text-center">Action</th>
           </tr>
         </thead>
         <tbody>
           <% patients.forEach(patient => { %>
           <tr>
-            <td class="border px-4 py-2">
-              <%= patient.firstName %> <%= patient.lastName %>
+            <td class="border px-4 py-2 text-center">
+              <div class="flex justify-center items-center">
+                <%= patient.firstName %> <%= patient.lastName %>
+              </div>
             </td>
-            <td class="border px-4 py-2"><%= patient.age %></td>
-            <td class="border px-4 py-2"><%= patient.gender %></td>
-            <td class="border px-4 py-2"><%= patient.bloodType %></td>
-            <td class="border px-4 py-2"><%= patient.phoneNumber %></td>
+            <td class="border px-4 py-2 text-center">
+              <div class="flex justify-center items-center">
+                <%= patient.age %>
+              </div>
+            </td>
+            <td class="border px-4 py-2 text-center">
+              <div class="flex justify-center items-center">
+                <%= patient.gender %>
+              </div>
+            </td>
+            <td class="border px-4 py-2 text-center">
+              <div class="flex justify-center items-center">
+                <%= patient.bloodType %>
+              </div>
+            </td>
+            <td class="border px-4 py-2 text-center">
+              <div class="flex justify-center items-center">
+                <%= patient.phoneNumber %>
+              </div>
+            </td>
+            <td class="border px-4 py-2 text-center">
+              <div class="flex justify-center items-center">
+                <a href="/patients/<%= patient._id %>">
+                    <button
+                      class="bg-primary text-white px-4 py-2 rounded-full hover:bg-secondary transition-all duration-150"
+                    >
+                      View Profile
+                    </button>
+                </a>
+              </div>
+            </td>
           </tr>
           <% }) %>
         </tbody>

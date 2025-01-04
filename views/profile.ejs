@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Profile</title>
+    <link rel="stylesheet" href="/Styles/output.css" />
+  </head>
+  <body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto p-8">
+      <h1 class="text-3xl font-bold text-primary mb-6">Patient Profile</h1>
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-2xl font-bold mb-4">
+          <%= patient.firstName %> <%= patient.lastName %>
+        </h2>
+        <p><strong>Age:</strong> <%= patient.age %></p>
+        <p><strong>Gender:</strong> <%= patient.gender %></p>
+        <p><strong>Blood Type:</strong> <%= patient.bloodType %></p>
+        <p><strong>Contact:</strong> <%= patient.phoneNumber %></p>
+        <p>
+          <strong>Secondary Contact:</strong> <%= patient.secondaryPhoneNumber
+          %>
+        </p>
+        <p><strong>Address:</strong> <%= patient.address %></p>
+        <p>
+          <strong>Medical Conditions:</strong> <%=
+          patient.medicalCondition.join(', ') %>
+        </p>
+        <p>
+          <strong>Medications:</strong> <%= patient.medications.join(', ') %>
+        </p>
+        <p>
+          <strong>Appointments:</strong> <%= patient.appointments.join(', ') %>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
