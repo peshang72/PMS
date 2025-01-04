@@ -676,9 +676,6 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
-.bg-\[url\(\'\.\.\/public\/img\/background\.jpg\'\)\] {
-  background-image: url('../public/img/background.jpg');
-}
 .bg-\[url\(\'\.\.\/img\/background\.jpg\'\)\] {
   background-image: url('../img/background.jpg');
 }
@@ -788,9 +785,6 @@ video {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-}
-.duration-300 {
-  transition-duration: 300ms;
 }
 .duration-150 {
   transition-duration: 150ms;

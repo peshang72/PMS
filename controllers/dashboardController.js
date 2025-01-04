@@ -61,10 +61,33 @@ const getPatientProfile = async (req, res) => {
   }
 };
 
+const searchPatients = async (req, res) => {
+  try {
+    const query = req.query.q;
+    const patients = await Patient.find({
+      $or: [
+        { firstName: new RegExp(query, "i") },
+        { lastName: new RegExp(query, "i") },
+        { phoneNumber: new RegExp(query, "i") },
+      ],
+    });
+    const enrichedPatients = patients.map((patient) => ({
+      ...patient.toObject(),
+      age: calculateAge(patient.dateOfBirth),
+      gender: getGender(patient.isMale),
+    }));
+    res.render("patients", { patients: enrichedPatients });
+  } catch (error) {
+    res.status(500).send("Error searching patients");
+  }
+};
+
+
 module.exports = {
   dashboardGet,
   registrationGet,
   registrationPost,
   getPatients,
   getPatientProfile,
+  searchPatients,
 };

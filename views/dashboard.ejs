@@ -30,15 +30,19 @@
           <span class="text-xl font-bold text-primary">XYZ Hospital</span>
         </div>
       </div>
-      <div class="w-1/3 flex items-center justify-center">
+      <form
+        action="/search"
+        method="get"
+        class="w-1/3 flex items-center justify-center"
+      >
         <input
           type="text"
-          name="search-bar"
+          name="q"
           placeholder="Search for Patient... e.g Phone Number, Name..."
           class="placeholder-primary text-secondary border-primary focus:border-secondary focus:border-b-4 focus:border-t-4 focus:border-l-4 peer focus:outline-none border-t-2 border-b-2 border-l-2 w-full flex-grow px-2 py-4 rounded-l-lg"
-          id=""
         />
-        <div
+        <button
+          type="submit"
           class="flex items-center border-2 rounded-r-lg px-2 py-2 border-primary peer-focus:border-secondary peer-focus:border-4"
         >
           <svg
@@ -51,8 +55,8 @@
               d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
             />
           </svg>
-        </div>
-      </div>
+        </button>
+      </form>
       <div class="flex flex-col items-center">
         <h1 class="text-2xl font-bold text-primary">16:24</h1>
         <h2 class="text-lg text-primary">03 Dec, 2024</h2>

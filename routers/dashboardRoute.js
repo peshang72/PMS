@@ -7,5 +7,6 @@ router.get("/registration", dashboardController.registrationGet);
 router.post("/registration", dashboardController.registrationPost);
 router.get("/patients", dashboardController.getPatients);
 router.get("/patients/:id", dashboardController.getPatientProfile);
+router.get("/search", dashboardController.searchPatients);
 
 module.exports = router;
