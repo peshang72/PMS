@@ -30,7 +30,14 @@
           <strong>Medications:</strong> <%= patient.medications.join(', ') %>
         </p>
         <p>
-          <strong>Appointments:</strong> <%= patient.appointments.join(', ') %>
+          <strong>Appointments:</strong>
+          <% patient.appointments.forEach(appointment => { %>
+          <div class=" rounded-md border-2 border-black bg-gray-300 p-2 mb-2 w-fit">
+            <p>Date: <%= appointment.date %></p>
+            <p>Doctor: <%= appointment.doctor %></p>
+            <p>Room: <%= appointment.room %></p>
+          </div>
+          <% }) %>
         </p>
       </div>
     </div>

@@ -8,8 +8,15 @@ const medicalConditionSchema = new Schema({
     },
     medications: [{
         type: Schema.Types.ObjectId,
-        ref: 'Medications',
+        ref: 'Medication',
     }],
+    patients: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Patient',
+    }],
+}, {
+    timestamps: true,
+    collection: 'Medical-Conditions',
 });
 
 const MedicalCondition = mongoose.model('MedicalCondition', medicalConditionSchema);

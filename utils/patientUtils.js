@@ -15,7 +15,12 @@ function getGender(isMale) {
   return isMale ? "Male" : "Female";
 }
 
+function getFullName(firstName, lastName) {
+  return `${firstName} ${lastName}`;
+}
+
 module.exports = {
   calculateAge,
   getGender,
+  getFullName,
 };

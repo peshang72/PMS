@@ -10,13 +10,19 @@ const patientSchema = new Schema({
         type: String,
         required: true,
     },
+    fullName: {
+        type: String,
+        get() {
+            return `${this.firstName} ${this.lastName}`;
+        }
+    },
     phoneNumber: {
         type: String,
         required: true,
     },
     secondaryPhoneNumber: {
         type: String,
-        required: true,
+        required: false,
     },
     dateOfBirth: {
         type: Date,
