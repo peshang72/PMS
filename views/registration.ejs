@@ -5,46 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Patient Registration</title>
     <link rel="stylesheet" href="/Styles/output.css" />
+    <script>
+      // Custom JavaScript to validate date of birth and phone numbers
+      function validateForm() {
+        // Validate Date of Birth - it should not be in the future
+        const dob = document.getElementById("dateOfBirth").value;
+        if (new Date(dob) > new Date()) {
+          alert("Date of birth cannot be in the future.");
+          return false;
+        }
+
+        // Validate Phone Numbers with regex
+        const phoneRegex = /^[+]?[0-9]{10,15}$/; // Match 10-15 digit phone number, optional '+'
+        const phone = document.getElementById("phoneNumber").value;
+        const secondaryPhone = document.getElementById("secondaryContact").value;
+
+        if (!phoneRegex.test(phone)) {
+          alert("Please enter a valid phone number.");
+          return false;
+        }
+        if (!phoneRegex.test(secondaryPhone)) {
+          alert("Please enter a valid secondary phone number.");
+          return false;
+        }
+
+        return true;
+      }
+
+      function calculateAge() {
+        const dob = document.getElementById("dateOfBirth").value;
+        const dobDate = new Date(dob);
+        const age = new Date().getFullYear() - dobDate.getFullYear();
+        document.getElementById("age").value = age;
+      }
+    </script>
   </head>
   <body class="bg-gray-100 min-h-screen flex items-center justify-center">
     <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
       <h1 class="text-2xl font-bold text-primary mb-6">Register New Patient</h1>
-      <form action="/registration" method="POST">
+      <form action="/registration" method="POST" onsubmit="return validateForm()">
         <div class="mb-4">
-          <label for="firstName" class="block text-secondary mb-2"
-            >First Name</label
-          >
+          <label for="firstName" class="block text-secondary mb-2">First Name</label>
           <input
             type="text"
             id="firstName"
             name="firstName"
             class="w-full px-3 py-2 border rounded"
             required
+            pattern="[A-Za-z]+"
+            title="First name should contain only letters."
           />
         </div>
         <div class="mb-4">
-          <label for="lastName" class="block text-secondary mb-2"
-            >Last Name</label
-          >
+          <label for="lastName" class="block text-secondary mb-2">Last Name</label>
           <input
             type="text"
             id="lastName"
             name="lastName"
             class="w-full px-3 py-2 border rounded"
             required
+            pattern="[A-Za-z]+"
+            title="Last name should contain only letters."
           />
         </div>
         <div class="mb-4 flex gap-8 items-center">
           <div class="w-1/2">
-            <label for="dateOfBirth" class="block text-secondary mb-2"
-              >Date of Birth</label
-            >
+            <label for="dateOfBirth" class="block text-secondary mb-2">Date of Birth</label>
             <input
               type="date"
               id="dateOfBirth"
               name="dateOfBirth"
               class="w-full px-3 py-2 border rounded bg-gray-100"
               onchange="calculateAge()"
+              required
             />
           </div>
           <div class="w-1/2">
@@ -59,28 +92,15 @@
           </div>
         </div>
         <div class="mb-4">
-          
-        </div>
-        <div class="mb-4">
           <label for="gender" class="block text-secondary mb-2">Gender</label>
-          <select
-            id="gender"
-            name="gender"
-            class="w-full px-3 py-2 border rounded"
-            required
-          >
+          <select id="gender" name="gender" class="w-full px-3 py-2 border rounded" required>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
         </div>
         <div class="mb-4">
           <label for="bloodType" class="block text-secondary mb-2">Blood Type</label>
-          <select
-            id="bloodType"
-            name="bloodType"
-            class="w-full px-3 py-2 border rounded"
-            required
-          >
+          <select id="bloodType" name="bloodType" class="w-full px-3 py-2 border rounded" required>
             <option value="">Select Blood Type</option>
             <option value="A+">A+</option>
             <option value="A-">A-</option>
@@ -93,27 +113,27 @@
           </select>
         </div>
         <div class="mb-4">
-          <label for="phoneNumber" class="block text-secondary mb-2"
-            >Phone Number</label
-          >
+          <label for="phoneNumber" class="block text-secondary mb-2">Phone Number</label>
           <input
             type="tel"
             id="phoneNumber"
             name="phoneNumber"
             class="w-full px-3 py-2 border rounded"
             required
+            pattern="^[+]?[0-9]{10,15}$"
+            title="Please enter a valid phone number (10-15 digits)."
           />
         </div>
         <div class="mb-4">
-          <label for="secondaryContact" class="block text-secondary mb-2"
-            >Secondary Phone Number</label
-          >
+          <label for="secondaryContact" class="block text-secondary mb-2">Secondary Phone Number</label>
           <input
             type="tel"
             id="secondaryContact"
             name="secondaryContact"
             class="w-full px-3 py-2 border rounded"
             required
+            pattern="^[+]?[0-9]{10,15}$"
+            title="Please enter a valid phone number (10-15 digits)."
           />
         </div>
         <div class="mb-4">
@@ -123,13 +143,19 @@
             name="address"
             class="w-full px-3 py-2 border rounded"
             required
+            minlength="10"
+            title="Address should be at least 10 characters long."
           ></textarea>
         </div>
-        <button type="submit" class="w-full bg-primary text-white py-2 rounded">
-          Register
-        </button>
+        <div class="mb-4 flex gap-4">
+          <button type="submit" class="w-1/2 bg-primary text-white py-2 rounded">
+            Register
+          </button>
+          <a href="/" class="w-1/2 text-center bg-blue-500 text-white py-2 rounded block">
+            Back To Home
+          </a>
+        </div>
       </form>
     </div>
-    <script src="/Scripts/registration.js"></script>
   </body>
 </html>

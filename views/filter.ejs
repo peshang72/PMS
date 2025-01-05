@@ -9,6 +9,8 @@
   <body class="bg-gray-100 min-h-screen">
     <div class="container mx-auto p-8">
       <h1 class="text-3xl font-bold text-primary mb-6">Filter Patients</h1>
+
+      <!-- Filter Form -->
       <form
         action="/filter"
         method="post"
@@ -66,9 +68,23 @@
             <option value="AB-">AB-</option>
           </select>
         </div>
-        <button type="submit" class="w-full bg-primary text-white py-2 rounded">
-          Filter
-        </button>
+
+        <!-- Buttons -->
+        <div class="flex justify-between space-x-4">
+          <button
+            type="button"
+            onclick="window.location.href='/'"
+            class="bg-secondary text-white py-3 px-6 rounded shadow w-1/2"
+          >
+            Back to Home
+          </button>
+          <button
+            type="submit"
+            class="bg-primary text-white py-3 px-6 rounded shadow w-1/2"
+          >
+            Filter
+          </button>
+        </div>
       </form>
     </div>
   </body>

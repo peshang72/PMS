@@ -18,13 +18,11 @@
         <p><strong>Blood Type:</strong> <%= patient.bloodType %></p>
         <p><strong>Contact:</strong> <%= patient.phoneNumber %></p>
         <p>
-          <strong>Secondary Contact:</strong> <%= patient.secondaryPhoneNumber
-          %>
+          <strong>Secondary Contact:</strong> <%= patient.secondaryPhoneNumber %>
         </p>
         <p><strong>Address:</strong> <%= patient.address %></p>
         <p>
-          <strong>Medical Conditions:</strong> <%=
-          patient.medicalCondition.join(', ') %>
+          <strong>Medical Conditions:</strong> <%= patient.medicalCondition.join(', ') %>
         </p>
         <p>
           <strong>Medications:</strong> <%= patient.medications.join(', ') %>
@@ -32,13 +30,23 @@
         <p>
           <strong>Appointments:</strong>
           <% patient.appointments.forEach(appointment => { %>
-          <div class=" rounded-md border-2 border-black bg-gray-300 p-2 mb-2 w-fit">
+          <div class="rounded-md border-2 border-black bg-gray-300 p-2 mb-2 w-fit">
             <p>Date: <%= appointment.date %></p>
             <p>Doctor: <%= appointment.doctor %></p>
             <p>Room: <%= appointment.room %></p>
           </div>
           <% }) %>
         </p>
+        
+        <!-- Buttons -->
+        <div class="mt-4 flex gap-4">
+          <!-- Back Button -->
+          <button onclick="window.history.back()" class="bg-blue-500 text-white py-2 px-4 rounded">
+            Back
+          </button>
+          
+          </a>
+        </div>
       </div>
     </div>
   </body>
