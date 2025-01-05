@@ -58,34 +58,33 @@
         </button>
       </form>
       <!-- Clock and Date Section -->
-<div class="flex flex-col items-center">
-  <h1 id="clock" class="text-2xl font-bold text-primary"></h1>
-  <h2 id="date" class="text-lg text-primary"></h2>
-</div>
+      <div class="flex flex-col items-center">
+        <h1 id="clock" class="text-2xl font-bold text-primary"></h1>
+        <h2 id="date" class="text-lg text-primary"></h2>
+      </div>
 
-<script>
-  // Update Clock and Date
-  function updateClockAndDate() {
-    const clockElement = document.getElementById("clock");
-    const dateElement = document.getElementById("date");
-    
-    const now = new Date();
-    
-    // Format time
-    const hours = now.getHours().toString().padStart(2, "0");
-    const minutes = now.getMinutes().toString().padStart(2, "0");
-    clockElement.textContent = `${hours}:${minutes}`;
-    
-    // Format date
-    const options = { day: "2-digit", month: "short", year: "numeric" };
-    dateElement.textContent = now.toLocaleDateString("en-US", options);
-  }
-  
-  // Initialize and Update Every Second
-  updateClockAndDate();
-  setInterval(updateClockAndDate, 1000);
-</script>
+      <script>
+        // Update Clock and Date
+        function updateClockAndDate() {
+          const clockElement = document.getElementById("clock");
+          const dateElement = document.getElementById("date");
 
+          const now = new Date();
+
+          // Format time
+          const hours = now.getHours().toString().padStart(2, "0");
+          const minutes = now.getMinutes().toString().padStart(2, "0");
+          clockElement.textContent = `${hours}:${minutes}`;
+
+          // Format date
+          const options = { day: "2-digit", month: "short", year: "numeric" };
+          dateElement.textContent = now.toLocaleDateString("en-US", options);
+        }
+
+        // Initialize and Update Every Second
+        updateClockAndDate();
+        setInterval(updateClockAndDate, 1000);
+      </script>
     </nav>
 
     <div class="pt-40 px-16">
@@ -110,19 +109,20 @@
           <p class="text-secondary">Recent Growing Disease</p>
         </div>
 
-        <!-- Predominant Patient Age Group -->
+        <!-- Average Patient Age -->
         <div class="bg-white shadow-lg rounded-lg p-6">
-          <h2 class="text-2xl font-bold text-primary">57-65</h2>
-          <p class="text-secondary">Predominant Patient Age Group</p>
+          <h2 class="text-2xl font-bold text-primary">
+            <%= averageAge %> Years
+          </h2>
+          <p class="text-secondary">Average Patient Age</p>
         </div>
 
         <!-- Patients Section -->
         <div class="bg-white shadow-lg rounded-lg p-6">
           <div class="flex justify-between items-center">
             <h2 class="text-xl font-bold text-primary">Patients List</h2>
-            <a href="/patients" class="text-secondary "><u>View All</u></a>
+            <a href="/patients" class="text-secondary"><u>View All</u></a>
           </div>
-          
         </div>
 
         <!-- Available Doctors -->

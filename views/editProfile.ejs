@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Patient Profile</title>
+    <link rel="stylesheet" href="/Styles/output.css" />
+  </head>
+  <body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto p-8">
+      <h1 class="text-3xl font-bold text-primary mb-6">Edit Patient Profile</h1>
+      <form action="/patients/<%= patient._id %>/edit" method="post" class="bg-white shadow-md rounded-lg p-6">
+        <div class="mb-4">
+          <label for="firstName" class="block text-secondary mb-2">First Name</label>
+          <input type="text" id="firstName" name="firstName" value="<%= patient.firstName %>" class="w-full px-3 py-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label for="lastName" class="block text-secondary mb-2">Last Name</label>
+          <input type="text" id="lastName" name="lastName" value="<%= patient.lastName %>" class="w-full px-3 py-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label for="phoneNumber" class="block text-secondary mb-2">Phone Number</label>
+          <input type="text" id="phoneNumber" name="phoneNumber" value="<%= patient.phoneNumber %>" class="w-full px-3 py-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label for="secondaryPhoneNumber" class="block text-secondary mb-2">Secondary Phone Number</label>
+          <input type="text" id="secondaryPhoneNumber" name="secondaryPhoneNumber" value="<%= patient.secondaryPhoneNumber %>" class="w-full px-3 py-2 border rounded">
+        </div>
+        <div class="mb-4">
+          <label for="dateOfBirth" class="block text-secondary mb-2">Date of Birth</label>
+          <input type="date" id="dateOfBirth" name="dateOfBirth" value="<%= patient.dateOfBirth.toISOString().split('T')[0] %>" class="w-full px-3 py-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label for="gender" class="block text-secondary mb-2">Gender</label>
+          <select id="gender" name="gender" class="w-full px-3 py-2 border rounded">
+            <option value="male" <%= patient.isMale ? 'selected' : '' %>>Male</option>
+            <option value="female" <%= !patient.isMale ? 'selected' : '' %>>Female</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="bloodType" class="block text-secondary mb-2">Blood Type</label>
+          <input type="text" id="bloodType" name="bloodType" value="<%= patient.bloodType %>" class="w-full px-3 py-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label for="address" class="block text-secondary mb-2">Address</label>
+          <input type="text" id="address" name="address" value="<%= patient.address %>" class="w-full px-3 py-2 border rounded" required>
+        </div>
+        <button type="submit" class="bg-primary text-white py-2 px-4 rounded">Save Changes</button>
+      </form>
+    </div>
+  </body>
+</html> 

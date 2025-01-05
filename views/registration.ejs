@@ -5,40 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Patient Registration</title>
     <link rel="stylesheet" href="/Styles/output.css" />
-    <script>
-      // Custom JavaScript to validate date of birth and phone numbers
-      function validateForm() {
-        // Validate Date of Birth - it should not be in the future
-        const dob = document.getElementById("dateOfBirth").value;
-        if (new Date(dob) > new Date()) {
-          alert("Date of birth cannot be in the future.");
-          return false;
-        }
-
-        // Validate Phone Numbers with regex
-        const phoneRegex = /^[+]?[0-9]{10,15}$/; // Match 10-15 digit phone number, optional '+'
-        const phone = document.getElementById("phoneNumber").value;
-        const secondaryPhone = document.getElementById("secondaryContact").value;
-
-        if (!phoneRegex.test(phone)) {
-          alert("Please enter a valid phone number.");
-          return false;
-        }
-        if (!phoneRegex.test(secondaryPhone)) {
-          alert("Please enter a valid secondary phone number.");
-          return false;
-        }
-
-        return true;
-      }
-
-      function calculateAge() {
-        const dob = document.getElementById("dateOfBirth").value;
-        const dobDate = new Date(dob);
-        const age = new Date().getFullYear() - dobDate.getFullYear();
-        document.getElementById("age").value = age;
-      }
-    </script>
   </head>
   <body class="bg-gray-100 min-h-screen flex items-center justify-center">
     <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
@@ -157,5 +123,7 @@
         </div>
       </form>
     </div>
+    
+    <script src="/Scripts/registration.js"></script>
   </body>
 </html>

@@ -10,4 +10,6 @@ router.get("/patients/:id", dashboardController.getPatientProfile);
 router.get("/search", dashboardController.searchPatients);
 router.get("/filter", dashboardController.filterGet);
 router.post("/filter", dashboardController.filterPatients);
+router.get("/patients/:id/edit", dashboardController.getEditPatientProfile);
+router.post("/patients/:id/edit", dashboardController.postEditPatientProfile);
 module.exports = router;

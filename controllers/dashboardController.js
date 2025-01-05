@@ -10,8 +10,20 @@ const {
 } = require("../utils/patientUtils");
 
 const dashboardGet = async (req, res) => {
-  const patients = await Patient.find();
-  res.render("dashboard", { patients });
+  try {
+    const patients = await Patient.find();
+    const totalAge = patients.reduce((sum, patient) => {
+      return sum + calculateAge(patient.dateOfBirth);
+    }, 0);
+    const averageAge = patients.length
+      ? Math.round(totalAge / patients.length)
+      : 0;
+
+    res.render("dashboard", { patients, averageAge });
+  } catch (error) {
+    console.error("Error fetching dashboard data:", error);
+    res.status(500).send("Error fetching dashboard data");
+  }
 };
 
 const registrationGet = (req, res) => {
@@ -230,6 +242,57 @@ const filterPatients = async (req, res) => {
   }
 };
 
+const getEditPatientProfile = async (req, res) => {
+  try {
+    const patient = await Patient.findById(req.params.id);
+    if (!patient) {
+      return res.status(404).send("Patient not found");
+    }
+    res.render("editProfile", { patient });
+  } catch (error) {
+    console.error("Error fetching patient for edit:", error);
+    res.status(500).send("Error fetching patient for edit");
+  }
+};
+
+const postEditPatientProfile = async (req, res) => {
+  try {
+    const {
+      firstName,
+      lastName,
+      phoneNumber,
+      secondaryPhoneNumber,
+      dateOfBirth,
+      gender,
+      bloodType,
+      address,
+    } = req.body;
+    const patient = await Patient.findByIdAndUpdate(
+      req.params.id,
+      {
+        firstName,
+        lastName,
+        phoneNumber,
+        secondaryPhoneNumber,
+        dateOfBirth,
+        isMale: gender === "male",
+        bloodType,
+        address,
+      },
+      { new: true }
+    );
+
+    if (!patient) {
+      return res.status(404).send("Patient not found");
+    }
+
+    res.redirect(`/patients/${patient._id}`);
+  } catch (error) {
+    console.error("Error updating patient profile:", error);
+    res.status(500).send("Error updating patient profile");
+  }
+};
+
 module.exports = {
   dashboardGet,
   registrationGet,
@@ -239,4 +302,6 @@ module.exports = {
   searchPatients,
   filterGet,
   filterPatients,
+  getEditPatientProfile,
+  postEditPatientProfile,
 };

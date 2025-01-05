@@ -20,6 +20,25 @@ function calculateAge() {
 function setMaxDate() {
   const today = new Date().toISOString().split("T")[0];
   document.getElementById("dateOfBirth").setAttribute("max", today);
+  document.getElementById("dateOfBirth").setAttribute("min", "1900-01-01");
 }
 
 window.onload = setMaxDate;
+
+function validateForm() {
+  // Validate Phone Numbers with regex
+  const phoneRegex = /^[+]?[0-9]{10,15}$/; // Match 10-15 digit phone number, optional '+'
+  const phone = document.getElementById("phoneNumber").value;
+  const secondaryPhone = document.getElementById("secondaryContact").value;
+
+  if (!phoneRegex.test(phone)) {
+    alert("Please enter a valid phone number.");
+    return false;
+  }
+  if (!phoneRegex.test(secondaryPhone)) {
+    alert("Please enter a valid secondary phone number.");
+    return false;
+  }
+
+  return true;
+}
